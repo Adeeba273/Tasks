@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing - Filter & Sort</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Product Catalog</h1>
+            <p>Discover amazing products with our advanced filtering and sorting options</p>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="filter-section">
+                    <h3>Filters</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Category</h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" value="electronics" checked>
+                                <span class="checkmark"></span>
+                                Electronics
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="clothing" checked>
+                                <span class="checkmark"></span>
+                                Clothing
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="home" checked>
+                                <span class="checkmark"></span>
+                                Home & Garden
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="sports" checked>
+                                <span class="checkmark"></span>
+                                Sports
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="books" checked>
+                                <span class="checkmark"></span>
+                                Books
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <div class="price-range">
+                            <input type="range" id="priceMin" min="0" max="1000" value="0" class="price-slider">
+                            <input type="range" id="priceMax" min="0" max="1000" value="1000" class="price-slider">
+                            <div class="price-display">
+                                <span id="minPrice">$0</span> - <span id="maxPrice">$1000</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Rating</h4>
+                        <div class="rating-filter">
+                            <label class="filter-option">
+                                <input type="checkbox" value="5" checked>
+                                <span class="checkmark"></span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="4" checked>
+                                <span class="checkmark"></span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" value="3" checked>
+                                <span class="checkmark"></span>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="clear-filters" onclick="clearAllFilters()">Clear All Filters</button>
+                </div>
+            </aside>
+
+            <main class="products-section">
+                <div class="products-header">
+                    <div class="results-info">
+                        <span id="resultsCount">24 products found</span>
+                    </div>
+                    <div class="sort-controls">
+                        <label for="sortSelect">Sort by:</label>
+                        <select id="sortSelect" onchange="sortProducts()">
+                            <option value="name-asc">Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="price-asc">Price (Low to High)</option>
+                            <option value="price-desc">Price (High to Low)</option>
+                            <option value="rating-desc">Rating (High to Low)</option>
+                            <option value="rating-asc">Rating (Low to High)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="products-grid" id="productsGrid">
+                    <!-- Products will be dynamically loaded here -->
+                </div>
+
+                <div class="no-results" id="noResults" style="display: none;">
+                    <i class="fas fa-search"></i>
+                    <h3>No products found</h3>
+                    <p>Try adjusting your filters to see more results</p>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

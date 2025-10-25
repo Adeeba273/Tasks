@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>✨ Smart To-Do List</title>
+  <link rel="stylesheet" href="todo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">✨ TaskMaster</div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Tasks</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="todo-container">
+    <div class="todo-box">
+      <h2>🌿 My Smart To-Do List</h2>
+
+      <div class="stats">
+        <span id="totalTasks">Total: 0</span>
+        <span id="completedTasks">Completed: 0</span>
+        <span id="remainingTasks">Remaining: 0</span>
+      </div>
+
+      <div class="input-area">
+        <input type="text" id="taskInput" placeholder="Add a new task..." />
+        <button id="addTaskBtn">Add</button>
+      </div>
+
+      <ul id="taskList"></ul>
+
+      <div class="buttons">
+        <button id="clearAll">Clear All</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 TaskMaster | Built with 💙 HTML, CSS & JS
+  </footer>
+
+  <script src="todo.js"></script>
+</body>
+</html>
