@@ -1,0 +1,470 @@
+/* Cross-Browser Compatibility Fixes for ModernTech */
+
+/* Reset and normalize for all browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* IE 11 and older fallbacks */
+.ie-fallback {
+    display: block;
+}
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+    .search-input {
+        -moz-appearance: none;
+        background-color: white;
+    }
+    
+    .filter-select {
+        -moz-appearance: none;
+        background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+        background-repeat: no-repeat;
+        background-position: right 0.7em top 50%;
+        background-size: 0.65em auto;
+    }
+}
+
+/* Safari specific fixes */
+@supports (-webkit-appearance: none) {
+    .search-input,
+    .filter-select {
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+    
+    .hero-image img {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+}
+
+/* Edge specific fixes */
+@supports (-ms-ime-align: auto) {
+    .products-grid {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
+        -ms-grid-rows: auto auto auto;
+    }
+    
+    .product-card {
+        -ms-grid-column: auto;
+        -ms-grid-row: auto;
+    }
+}
+
+/* CSS Grid fallback for older browsers */
+.products-grid {
+    display: -ms-grid; /* IE 10+ */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Flexbox fallback for older browsers */
+.nav-container,
+.nav-actions,
+.hero-container,
+.about-content,
+.contact-content,
+.footer-content {
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex;
+}
+
+/* Flexbox properties with fallbacks */
+.nav-container {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+/* CSS Variables fallback */
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #64748b;
+    --accent-color: #f59e0b;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+/* Fallback colors for browsers that don't support CSS variables */
+.primary-color { color: #2563eb; }
+.primary-dark { color: #1d4ed8; }
+.secondary-color { color: #64748b; }
+.accent-color { color: #f59e0b; }
+.text-dark { color: #1e293b; }
+.text-light { color: #64748b; }
+.bg-light { background-color: #f8fafc; }
+.bg-white { background-color: #ffffff; }
+.border-color { border-color: #e2e8f0; }
+
+/* Transform fallbacks */
+.product-card:hover {
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px);
+}
+
+.cta-btn:hover {
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    -o-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+/* Box shadow fallbacks */
+.product-card {
+    -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Border radius fallbacks */
+.product-card,
+.cta-btn,
+.search-input,
+.filter-select,
+.submit-btn {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+/* Transition fallbacks */
+.product-card,
+.cta-btn,
+.nav-link,
+.search-input,
+.filter-select {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Animation fallbacks */
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-10px);
+        -moz-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        -o-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    60% {
+        -webkit-transform: translateY(-5px);
+        -moz-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        -o-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+/* Scroll behavior fallback */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fallback for browsers that don't support smooth scrolling */
+.no-smooth-scroll {
+    scroll-behavior: auto;
+}
+
+/* Object-fit fallback for older browsers */
+.product-image img,
+.hero-image img,
+.about-image img {
+    width: 100%;
+    height: auto;
+    /* Fallback for object-fit: cover */
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+
+/* IE 11 object-fit polyfill */
+.ie-object-fit {
+    position: relative;
+    overflow: hidden;
+}
+
+.ie-object-fit img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/* Focus styles for better accessibility */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .product-card {
+        border: 2px solid #000;
+    }
+    
+    .nav-link:hover {
+        text-decoration: underline;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        -webkit-animation-duration: 0.01ms !important;
+        -moz-animation-duration: 0.01ms !important;
+        -ms-animation-duration: 0.01ms !important;
+        -o-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        
+        -webkit-animation-iteration-count: 1 !important;
+        -moz-animation-iteration-count: 1 !important;
+        -ms-animation-iteration-count: 1 !important;
+        -o-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        
+        -webkit-transition-duration: 0.01ms !important;
+        -moz-transition-duration: 0.01ms !important;
+        -ms-transition-duration: 0.01ms !important;
+        -o-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .nav-actions,
+    .cart-modal,
+    .footer {
+        display: none !important;
+    }
+    
+    .hero {
+        margin-top: 0;
+        page-break-inside: avoid;
+    }
+    
+    .product-card {
+        page-break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text-dark: #f8fafc;
+        --text-light: #cbd5e1;
+        --bg-white: #1e293b;
+        --bg-light: #334155;
+        --border-color: #475569;
+    }
+}
+
+/* Mobile Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .search-input,
+    .filter-select {
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+    
+    .hero-image img {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+}
+
+/* IE 10 and 11 specific fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .products-grid {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 1fr 1fr;
+    }
+    
+    .product-card {
+        -ms-grid-column: auto;
+        -ms-grid-row: auto;
+    }
+    
+    .hero-container {
+        display: -ms-flexbox;
+        -ms-flex-direction: row;
+    }
+    
+    .about-content,
+    .contact-content {
+        display: -ms-flexbox;
+        -ms-flex-direction: row;
+    }
+}
+
+/* Opera specific fixes */
+@supports (-webkit-appearance: none) and (not (-ms-ime-align: auto)) {
+    .search-input,
+    .filter-select {
+        -webkit-appearance: none;
+    }
+}
+
+/* Firefox mobile specific fixes */
+@-moz-document url-prefix() {
+    .mobile-menu-btn {
+        -moz-appearance: none;
+        background: none;
+        border: none;
+    }
+}
+
+/* Chrome mobile specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .search-input,
+    .filter-select {
+        -webkit-appearance: none;
+    }
+}
+
+/* Edge mobile specific fixes */
+@supports (-ms-ime-align: auto) {
+    .search-input,
+    .filter-select {
+        -ms-appearance: none;
+    }
+}
+
+/* Fallback for browsers that don't support CSS Grid */
+.no-cssgrid .products-grid {
+    display: block;
+}
+
+.no-cssgrid .product-card {
+    display: inline-block;
+    width: 30%;
+    margin: 1%;
+    vertical-align: top;
+}
+
+@media (max-width: 768px) {
+    .no-cssgrid .product-card {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    .no-cssgrid .product-card {
+        width: 100%;
+        margin: 0 0 2rem 0;
+    }
+}
+
+/* Fallback for browsers that don't support Flexbox */
+.no-flexbox .nav-container,
+.no-flexbox .nav-actions,
+.no-flexbox .hero-container,
+.no-flexbox .about-content,
+.no-flexbox .contact-content,
+.no-flexbox .footer-content {
+    display: block;
+}
+
+.no-flexbox .nav-container > * {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.no-flexbox .hero-container > * {
+    display: block;
+    width: 100%;
+}
+
+/* Fallback for browsers that don't support CSS Variables */
+.no-cssvars .primary-color { color: #2563eb; }
+.no-cssvars .primary-dark { color: #1d4ed8; }
+.no-cssvars .secondary-color { color: #64748b; }
+.no-cssvars .accent-color { color: #f59e0b; }
+.no-cssvars .text-dark { color: #1e293b; }
+.no-cssvars .text-light { color: #64748b; }
+.no-cssvars .bg-light { background-color: #f8fafc; }
+.no-cssvars .bg-white { background-color: #ffffff; }
+.no-cssvars .border-color { border-color: #e2e8f0; }
+

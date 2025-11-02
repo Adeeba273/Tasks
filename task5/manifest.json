@@ -1,0 +1,70 @@
+{
+    "name": "ModernTech - Premium Electronics Store",
+    "short_name": "ModernTech",
+    "description": "Discover the latest in technology with premium electronics and gadgets",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#2563eb",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "en",
+    "categories": ["shopping", "business"],
+    "icons": [
+        {
+            "src": "https://via.placeholder.com/192x192/2563eb/ffffff?text=MT",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "https://via.placeholder.com/512x512/2563eb/ffffff?text=MT",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=1280&q=80",
+            "sizes": "1280x720",
+            "type": "image/jpeg",
+            "form_factor": "wide"
+        },
+        {
+            "src": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=750&q=80",
+            "sizes": "750x1334",
+            "type": "image/jpeg",
+            "form_factor": "narrow"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "View Products",
+            "short_name": "Products",
+            "description": "Browse our latest products",
+            "url": "/#products",
+            "icons": [
+                {
+                    "src": "https://via.placeholder.com/96x96/2563eb/ffffff?text=P",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Shopping Cart",
+            "short_name": "Cart",
+            "description": "View your shopping cart",
+            "url": "/#cart",
+            "icons": [
+                {
+                    "src": "https://via.placeholder.com/96x96/2563eb/ffffff?text=C",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false
+}
+
